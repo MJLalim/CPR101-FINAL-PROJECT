@@ -7,29 +7,30 @@
 #include <string.h>
 #include "tokenizing.h"
 
-// V2
+
 void tokenizing(void) {
-    printf("*** Start of Tokenizing Phrases Demo ***\n");
+    //V3
+    printf("*** Start of Tokenizing Sentences Demo ***\n");
 
-    char phrases[BUFFER_SIZE];
-    char* nextPhrase = NULL;
-    int phrasesCounter;
+    char sentences[BUFFER_SIZE];
+    char* nextSentence=NULL;
+    int sentencesCounter = 0;
 
-    do{
-        printf("Type a few phrases separated by comma (q - to quit):\n");
-        fgets(phrases, BUFFER_SIZE, stdin);
-        phrases[strlen(phrases) - 1] = '\0';
+    do {
+        printf("Type a few sentences separated by dot (q - to quit):\n");
+        fgets(sentences, BUFFER_SIZE, stdin);
+        sentences[strlen(sentences) - 1] = '\0'; 
 
-        if (strcmp(phrases, "q") != 0) {
-            nextPhrase = strtok(phrases, ",");
-            phrasesCounter = 1;
+        if (strcmp(sentences, "q") != 0) {
+            nextSentence = strtok(sentences, ".");
+            sentencesCounter = 1;
 
-            while (nextPhrase) {
-                printf("Phrase #%d is \'%s\'\n", phrasesCounter++, nextPhrase);
-                nextPhrase = strtok(NULL, ",");
+            while (nextSentence != NULL) {
+                printf("Sentence #%d is \'%s\'\n", sentencesCounter++, nextSentence);
+                nextSentence = strtok(NULL, ".");
             }
         }
-    } while (strcmp(phrases, "q") != 0);
-    
-    printf("*** End of Tokenizing phrases Demo ***\n\n");
+    } while (strcmp(sentences, "q") != 0);
+
+    printf("*** End of Tokenizing Sentences Demo ***\n\n");
 }
