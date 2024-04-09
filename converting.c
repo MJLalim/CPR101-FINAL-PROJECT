@@ -7,23 +7,26 @@
 #include <stdlib.h>
 #include "converting.h"
 
-// V1
+
 void converting(void) {
-    printf("*** Start of Converting Strings to double Demo ***\n");
-    char doubleString[BUFFER_SIZE]; 
-    double doubleNumber;
+    //V3
+    printf("*** Start of Converting Strings to long Demo ***\n");
+
+    char longString[BUFFER_SIZE];
+    long longNumber;
+
     do {
-        printf("Type the double numeric string (q - to quit):\n");
-        fgets(doubleString, BUFFER_SIZE, stdin);
-        doubleString[strlen(doubleString) - 1] = '\0'; 
+        printf("Type the long numeric string (q - to quit):\n");
+        fgets(longString, BUFFER_SIZE, stdin);
+        longString[strlen(longString) - 1] = '\0'; 
 
-        if (strcmp(doubleString, "q") != 0) {
-            doubleNumber = atof(doubleString);
-            printf("Converted number is %.2f\n", doubleNumber); 
+        if (strcmp(longString, "q") != 0) {
+            longNumber = atol(longString);
+            printf("Converted number is %ld\n", longNumber);
         }
-    } while (strcmp(doubleString, "q") != 0);
+    } while (strcmp(longString, "q") != 0);
 
-    printf("*** End of Converting Strings to double Demo ***\n\n");
+    printf("*** End of Converting Strings to long Demo ***\n\n");
 
     return 0;
 }
